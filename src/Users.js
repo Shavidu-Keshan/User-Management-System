@@ -1,9 +1,10 @@
-import UserForm from "./UserForm";
+import UserForm from "./UserForm.js";
 
 const Users =() => {
-    const User =() => {
+    return(
+
         <UserForm />
-    };
+    )
 
 }
 

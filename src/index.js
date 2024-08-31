@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowseRouter} from 'react-router-dom';
+import {BrowserRouter,Routes, Route} from 'react-router-dom';
+import Users from './Users.js';
+import UserForm from './UserForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowseRouter>
-  <Routes>
-    
-  </Routes>
-  </BrowseRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<App />} />
+      <Route path='/users'  element={<Users />} />
+      
+    </Routes>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

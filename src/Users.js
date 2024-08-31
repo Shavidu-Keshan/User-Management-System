@@ -1,9 +1,27 @@
+import { Box } from "@mui/system";
 import UserForm from "./UserForm.js";
+import UsersTable from "./UsersTable.js";
 
 const Users =() => {
-    return(
+    //sample user data set
+    const users = [
+    {
+        id : 1,
+        name : Prsad,
+    },
+    {
+        id : 2,
+        name : Prasadi,
+    },
 
-        <UserForm />
+]
+    return(
+        <Box>
+            <UserForm />
+            <UsersTable />
+        </Box>
+
+        
     )
 
 }

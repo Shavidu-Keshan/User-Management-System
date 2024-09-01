@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Grid, Input, Typography } from '@mui/material';
 
 const UserForm = (props) => {
+  const[id ,setId] = useState(0);
+  const[name,setName] = useState("")
   return (
     <form name="userForm" id="userForm"> {/* Adding form name and id */}
       <Grid
@@ -39,8 +41,8 @@ const UserForm = (props) => {
             id='id'
             name='id'
             sx={{ width: '400px' }}
-            value={''}
-            onChange={e => {}}
+            value={id}//passe the value id
+            onChange={e => setId(e.target.value)}
           />
         </Grid>
 
@@ -63,8 +65,8 @@ const UserForm = (props) => {
             id='name'
             name='name'
             sx={{ width: '400px' }}
-            value={''}
-            onChange={e => {}}
+            value={name}
+            onChange={e => setName(e.target.value)}
           />
         </Grid>
 

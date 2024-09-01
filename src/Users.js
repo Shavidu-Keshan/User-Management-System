@@ -7,11 +7,11 @@ const Users =() => {
     const users = [
     {
         id : 1,
-        name : Prsad,
+        name : "Prasad",
     },
     {
         id : 2,
-        name : Prasadi,
+        name : "Prasadi",
     },
 
 ]
@@ -20,7 +20,7 @@ const Users =() => {
             sx={{
                 width:'calc(100% - 100px)',
                 margin: 'auto',
-                margineTop: '10px',
+                marginTop: '10px',
             }}
         >
             <UserForm />

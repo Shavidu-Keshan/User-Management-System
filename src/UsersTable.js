@@ -1,4 +1,4 @@
-import { TableContainer } from '@mui/material'
+import { Button, TableContainer } from '@mui/material'
 import React from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function UsersTable(props) {
+function UsersTable({ rows }) {
   return (
     <div>
       <TableContainer component={Paper}>
@@ -22,25 +22,33 @@ function UsersTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+          {
+            //inline if else condition(rows.length > 0 ?)
+          rows.length > 0 ? rows.map((row) => (
+            <TableRow key={row.id} sx={{'&:last-child td, &:last-child th' : {border: 0}}}>
+            <TableCell component='th'>{row.id}</TableCell>
+            <TableCell component='th'>{row.name}</TableCell>
+            <TableCell>
+              <Button
+              sx={{margine : '0px 10px'}}
+              onClick={() => {}}>
+                Update
+              </Button>
+              <Button
+              sx={{margine : '0px 10px'}}
+              onClick={() => {}}>
+                Delete
+              </Button>
+            </TableCell>
             </TableRow>
-          ))}
+          )) :<TableRow  sx={{'&:last-child td, &:last-child th' : {border: 0}}}>
+            <TableCell component='th'>No Data</TableCell>
+          </TableRow> }
         </TableBody>
       </Table>
     </TableContainer>
     </div>
-  )
+  );
 }
 
 export default UsersTable

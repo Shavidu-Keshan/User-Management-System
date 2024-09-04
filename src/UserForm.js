@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Grid, Input, Typography } from '@mui/material';
 
-const UserForm = (props) => {
+const UserForm = ({addUser}) => {
   const[id ,setId] = useState(0);
-  const[name,setName] = useState("")
+  const[name,setName] = useState("");
+  
   return (
     <form name="userForm" id="userForm"> {/* Adding form name and id */}
       <Grid
@@ -82,6 +83,7 @@ const UserForm = (props) => {
                 backgroundColor: '#00c6e6',
               }
             }}
+            onClick={() => addUser({id ,name})}
           >
             Add
           </Button>

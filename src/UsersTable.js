@@ -24,7 +24,7 @@ function UsersTable({ rows }) {
         <TableBody>
           {
             //inline if else condition(rows.length > 0 ?)
-          rows.length > 0 ? rows.map((row) => (
+            rows.length > 0 ? rows.map((row) => (
             <TableRow key={row.id} sx={{'&:last-child td, &:last-child th' : {border: 0}}}>
             <TableCell component='th'>{row.id}</TableCell>
             <TableCell component='th'>{row.name}</TableCell>

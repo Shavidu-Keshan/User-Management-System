@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Users =() => {
 
     const [users, setUsers] = useState([]);
-    const [submitted ,setSubmitted] = useState([]); 
+    const [submitted ,setSubmitted] = useState([false]); 
 
     useEffect(() => {
         getUsers();
@@ -29,17 +29,15 @@ const Users =() => {
         const payload = {
             id : data.id,
             name : data.name,
-        }
-        Axios.post('http://localhost:3002/api/createuser')
+        };
+        Axios.post('http://localhost:3002/api/createuser', payload) // Ensure you are sending the payload
         .then(() => {
-            getUsers();
+            getUsers(); // Refresh the users list after a successful addition
             setSubmitted(false);
         })
         .catch(error => {
-            console.log("Axios Error : ",error);
-
-        }
-        );
+            console.log("Axios Error:", error);
+        }); 
     }
 
     return(
@@ -51,7 +49,7 @@ const Users =() => {
             }}
         >
             <UserForm 
-            AddUser = {addUser}/>
+            addUser = {addUser}/>
             <UsersTable rows={users}/>
         </Box>
 
